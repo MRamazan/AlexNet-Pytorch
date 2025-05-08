@@ -110,7 +110,7 @@ def validate(model, testloader, criterion, device):
     return epoch_loss, epoch_acc
 
 
-print(f"Starting training for {num_epochs} epochs...")
+print(f"Starting training for {num_epochs} epochs")
 for epoch in range(num_epochs):
     train_loss, train_acc = train_epoch(model, trainloader, criterion, optimizer, device)
     train_losses.append(train_loss)
@@ -123,8 +123,6 @@ for epoch in range(num_epochs):
     print(f'Epoch {epoch + 1}/{num_epochs} || '
           f'Train Loss: {train_loss} || Train Acc: {train_acc}%, '
           f'Val Loss: {val_loss:} || Val Acc: {val_acc}%')
-
-print('Training Finished')
 
 torch.save(model.state_dict(), "alexnet_cifar15.pth")
 print(f"Model saved")
